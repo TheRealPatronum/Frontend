@@ -7,21 +7,28 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { UiModule } from '@frontend/ui';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomePageComponent
-  },
-  {
-    path: 'products',
-    component: ProductListComponent
-  }
+    {
+        path: '',
+        component: HomePageComponent
+    },
+    {
+        path: 'products',
+        component: ProductListComponent
+    }
 ];
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomePageComponent,
+        ProductListComponent,
+        HeaderComponent,
+        FooterComponent
+    ],
+    imports: [BrowserModule, RouterModule.forRoot(routes), UiModule],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
