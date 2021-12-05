@@ -6,6 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+
+import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 const routes: Routes = [
     {
@@ -15,14 +21,31 @@ const routes: Routes = [
             {
                 path: 'dashboard',
                 component: DashboardComponent
+            },
+            {
+                path: 'categories',
+                component: CategoriesListComponent
             }
         ]
     }
 ];
 
+const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule];
+
 @NgModule({
-    declarations: [AppComponent, DashboardComponent, ShellComponent, SidebarComponent],
-    imports: [BrowserModule, RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        ShellComponent,
+        SidebarComponent,
+        CategoriesListComponent
+    ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
+        ...UX_MODULE
+    ],
+
     providers: [],
     bootstrap: [AppComponent]
 })
