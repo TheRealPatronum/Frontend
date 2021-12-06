@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -15,20 +14,21 @@ import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CategoriesService } from '@frontend/products';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { InputTextModule } from 'primeng/inputtext';
-
 import { ToastModule } from 'primeng/toast';
-import { CategoriesService } from '@frontend/products';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 const UX_MODULE = [
-  ToastModule,
   CardModule,
+  ToastModule,
+  InputTextModule,
+  TableModule,
   ToolbarModule,
   ButtonModule,
-  TableModule,
-  InputTextModule
+  ConfirmDialogModule
 ];
 
 const routes: Routes = [
@@ -47,6 +47,10 @@ const routes: Routes = [
       {
         path: 'categories/form',
         component: CategoriesFormComponent
+      },
+      {
+        path: 'categories/form/:id',
+        component: CategoriesFormComponent
       }
     ]
   }
@@ -55,9 +59,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    ShellComponent,
     SidebarComponent,
+    ShellComponent,
+    DashboardComponent,
     CategoriesListComponent,
     CategoriesFormComponent
   ],
@@ -70,8 +74,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     ...UX_MODULE
   ],
-
-  providers: [CategoriesService, MessageService],
+  providers: [CategoriesService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

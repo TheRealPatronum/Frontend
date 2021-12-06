@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="admin-page">
   <p-card header="Categories" subheader ="List of all categories">
     <div class="grid">
@@ -22,6 +23,7 @@
               <th>Id</th>
               <th>Name</th>
               <th>Icon</th>
+              <th></th>
               
             </tr>
           </ng-template>
@@ -30,6 +32,16 @@
                 <td>{{category.id}}</td>
                 <td>{{category.name}}</td>
                 <td>{{category.icon}}</td>
+                <td>
+                   <p-button (click)="deleteCategory(category.id)"
+                    styleClass="p-button-danger mr-2"
+                    icon="pi pi-trash"                    
+                  ></p-button>
+                  <p-button (click)="updateCategory(category.id)"
+                    styleClass="p-button-success"
+                    icon="pi pi-pencil"                    
+                  ></p-button>
+                </td>
                
               </tr>
             </ng-template>
@@ -38,3 +50,4 @@
     </div>
   </p-card>
 </div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
