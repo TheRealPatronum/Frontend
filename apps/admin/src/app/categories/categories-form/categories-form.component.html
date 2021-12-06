@@ -8,7 +8,8 @@
             <p-button
             styleClass="p-button-primary mr-2"
             label="Create"
-            icon="pi pi-plus"           
+            icon="pi pi-plus" 
+            (click)="onSubmit()"          
             ></p-button>
             <p-button
             styleClass="p-button-secondary"
@@ -22,15 +23,17 @@
     </div>
     <div class="grid">
       <div class="col-12">
-        <form formGroup[]="form">
+        <form [formGroup]="form">
           <div class="p-fluid p-formgrid grid">
             <div class="p-field col">
               <label for="name">Name</label>
-              <input formControlName="name" id="name" type="text" pInputText> 
+              <input formControlName="name" id="name" type="text" pInputText>
+              <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is Required</small>
             </div>
             <div class="p-field col">
               <label for="icon">Icon</label>
               <input formControlName="icon" id="icon" type="text" pInputText> 
+               <small *ngIf="categoryForm.icon.invalid && isSubmitted" class="p-error">Icon is Required</small>
             </div>
           </div>
         </form>      
