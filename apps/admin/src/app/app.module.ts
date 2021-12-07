@@ -9,6 +9,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -53,6 +55,18 @@ const routes: Routes = [
       {
         path: 'categories/form/:id',
         component: CategoriesFormComponent
+      },
+      {
+        path: 'products',
+        component: ProductsListComponent
+      },
+      {
+        path: 'products/form',
+        component: ProductsFormComponent
+      },
+      {
+        path: 'products/form/:id',
+        component: ProductsFormComponent
       }
     ]
   }
@@ -65,7 +79,9 @@ const routes: Routes = [
     ShellComponent,
     DashboardComponent,
     CategoriesListComponent,
-    CategoriesFormComponent
+    CategoriesFormComponent,
+    ProductsListComponent,
+    ProductsFormComponent
   ],
   imports: [
     BrowserModule,
