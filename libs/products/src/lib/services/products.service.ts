@@ -8,27 +8,27 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductsService {
-  apiURLCategories = environment.apiUrl + 'products';
+  apiURLProducts = environment.apiUrl + 'products';
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiURLCategories);
+    return this.http.get<Product[]>(this.apiURLProducts);
   }
 
-  // getCategory(categoryId: string): Observable<Category> {
-  //   return this.http.get<Category>(`${this.apiURLCategories}/${categoryId}`);
-  // }
+  createProduct(productData: FormData): Observable<Product> {
+    return this.http.post<Product>(this.apiURLProducts, productData);
+  }
 
-  // createCategory(category: Category): Observable<Category> {
-  //   return this.http.post<Category>(this.apiURLCategories, category);
-  // }
+  getProduct(productId: string): Observable<Product> {
+    return this.http.get<Product>(`${this.apiURLProducts}/${productId}`);
+  }
 
-  // updateCategory(category: Category): Observable<Category> {
-  //   return this.http.put<Category>(`${this.apiURLCategories}/${category.id}`, category);
-  // }
+  updateProduct(productData: FormData, productid: string): Observable<Product> {
+    return this.http.put<Product>(`${this.apiURLProducts}/${productid}`, productData);
+  }
 
-  // deleteCategory(categoryId: string): Observable<any> {
-  //   return this.http.delete<any>(`${this.apiURLCategories}/${categoryId}`);
-  // }
+  deleteProduct(productId: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiURLProducts}/${productId}`);
+  }
 }
