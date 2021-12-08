@@ -4,13 +4,13 @@
     [header]="editmode ? 'Edit Product' : 'Add Product'"
     subheader="You can add or edit products here"
   >
-    <div class="p-grid p-mb-5">
+    <div class="grid mb-5">
       <div class="col-12">
         <p-toolbar>
           <div class="p-toolbar-group-left"></div>
           <div class="p-toolbar-group-right">
             <p-button
-              styleClass="p-button-primary p-mr-2"
+              styleClass="p-button-primary mr-2"
               [label]="editmode ? 'Update' : 'Create'"
               icon="pi pi-plus"
               (click)="onSubmit()"
@@ -109,7 +109,7 @@
               <small *ngIf="productForm.image.invalid && isSubmitted" class="p-error"
                 >Image is required</small
               >
-              <div class="col-2 mt-2 pl-0">
+              <div class="col-2 mt-2 p-pl-0">
                 <img style="width: 100%" [src]="imageDisplay" alt="" />
               </div>
             </div>
