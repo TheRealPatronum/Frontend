@@ -44,8 +44,8 @@
                   severity="danger"
                   [rounded]="true"
                 ></p-tag>
-              </td>
-              <td>{{ user.country }}</td>
+              </td>             
+              <td>{{ getCountryNameBy(user.country) }}</td><td>{{ user.country }}</td>
               <td>
                 <p-button
                   (click)="deleteUser(user.id)"

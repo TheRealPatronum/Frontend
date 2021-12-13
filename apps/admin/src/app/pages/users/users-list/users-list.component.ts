@@ -49,6 +49,10 @@ export class UsersListComponent implements OnInit {
     });
   }
 
+  getCountryNameBy(countryKey: string) {
+    if (countryKey) return this.usersService.getCountry(countryKey);
+  }
+
   updateUser(userid: string) {
     this.router.navigateByUrl(`users/form/${userid}`);
   }
